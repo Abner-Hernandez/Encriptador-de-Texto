@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es-gt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de texto</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+
+    </header>
+    <main class="app">
+        <form class="app__encriptador">
+            <textarea class="app__encriptador__entrada" name="terminal" id="terminal" pattern="[a-z]+" title="Ingresa solo letras minúsculas" required></textarea>
+            <div class="app__encriptador__informacion">
+                <span class="material-symbols-outlined">info</span>
+                <p>Solo letras minúsculas y sin acentos</p>
+            </div>
+            <div class="app__encriptador__acciones">
+                <button class="app__boton app__boton--primario" type="submit">Encriptar</button>
+                <button class="app__boton app__boton--secundario" type="submit">Desencriptar</button>
+            </div>
+        </form>
+        <section class="app__desencriptador">
+            <div class="app__desencriptador__vacio">
+                
+            </div>
+            <div class="app__desencriptador__contenido">
+                <textarea class="app__desencriptador__contenido__salida" name="encriptado" id="encriptado"></textarea>
+                <button class="app__boton--secundario app__marginb">Copiar</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

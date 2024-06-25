@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
+
+:root{
+    --color-primario: #E5E5E5;
+}
+
+* {
+    padding: 0;
+    margin:0;
+}
+
+body{
+    box-sizing: border-box;
+    background-color: var(--color-primario);
+}
+
+.app{
+    display: flex;
+    gap: 80px;
+    padding: 40px;
+}
+
+.app__boton{
+    flex-grow: 1;
+    border: 2px solid darkblue;
+    border-radius: 24px;
+}
+
+.app__boton--primario{
+    background-color: darkblue;
+    color: white;
+}
+
+.app__boton--secondario{
+    background-color: transparent;
+    color: darkblue;
+}
+
+.app__marginb{
+    margin: 0px 32px 32px 32px;
+}
+
+.app__encriptador{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: space-between;
+    padding-left: 200px;
+    width: 70%;
+    height: 100%;
+}
+
+.app__encriptador__entrada{
+    background-color: transparent;
+    width: 100%;
+    resize: none;
+    border: none;
+    margin: 32px 0px 0px 0px;
+}
+
+.app__encriptador__informacion{
+    display: flex;
+    align-items: center;
+}
+
+.app__encriptador__acciones{
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    width: auto;
+}
+
+.app__desencriptador{
+    width: 30%;
+    background-color: white;
+    border-radius: 32px;
+}
+
+.app__desencriptador__vacio{
+    
+}
+
+.app__desencriptador__contenido__salida{
+    background-color: transparent;
+    border: none;
+    margin: 32px;
+    resize: none;
+}
+
+.app__desencriptador__contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+@media (max-width: 1024px) {
+
+    .app{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app__encriptador{
+        width: 100%;
+    }
+
+    .app__desencriptador{
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 500px) {
+
+    .app{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app__encriptador{
+        width: 100%;
+    }
+
+    .app__encriptador__acciones{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .app__desencriptador{
+        width: 100%;
+    }
+    
+}
