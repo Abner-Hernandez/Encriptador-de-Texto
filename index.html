@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="es-gt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de texto</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <header>
 
     </header>
     <main class="app">
-        <form class="app__encriptador">
-            <textarea class="app__encriptador__entrada" placeholder="Ingrese el texto aqui" name="terminal" id="terminal" pattern="[a-z]+" title="Ingresa solo letras minúsculas" required></textarea>
+        <form class="app__encriptador" onsubmit="validarTexto(event);">
+            <textarea class="app__encriptador__entrada" placeholder="Ingrese el texto aqui" name="consolaIn"
+                id="consolaIn" pattern="[a-z\s]+" title="Ingresa solo letras minúsculas" required></textarea>
             <div class="app__encriptador__informacion">
                 <span class="material-symbols-outlined">info</span>
                 <p class="app__encriptador__informacion__texto">Solo letras minúsculas y sin acentos</p>
             </div>
             <div class="app__encriptador__acciones">
-                <button class="app__boton app__boton--primario" type="submit">Encriptar</button>
-                <button class="app__boton app__boton--secundario" type="submit">Desencriptar</button>
+                <button class="app__boton app__boton--primario" type="submit"
+                    onclick="procesarTexto('encriptar');">Encriptar</button>
+                <button class="app__boton app__boton--secundario" type="submit"
+                    onclick="procesarTexto('desencriptar');">Desencriptar</button>
             </div>
         </form>
         <section class="app__desencriptador">
-            <div class="app__desencriptador__vacio" style="display: none;">
-                <img class="app__desencriptador__vacio__img" src="assets/notFound.png" alt="Ningún mensaje fue encontrado">
+            <div class="app__desencriptador__vacio" id="contenedorVacio">
+                <img class="app__desencriptador__vacio__img" src="assets/notFound.png"
+                    alt="Ningún mensaje fue encontrado">
                 <p class="app__desencriptador__vacio__smsprincipal">Ningún mensaje fue encontrado</p>
-                <p class="app__desencriptador__vacio__smssecundario">Ingresa el texto que desees encriptar o desencriptar.</p>
+                <p class="app__desencriptador__vacio__smssecundario">Ingresa el texto que desees encriptar o
+                    desencriptar.</p>
             </div>
-            <div class="app__desencriptador__contenido" >
-                <textarea class="app__desencriptador__contenido__salida" name="encriptado" id="encriptado"></textarea>
+            <div class="app__desencriptador__contenido" id="contenedorContenido" style="display: none;">
+                <textarea class="app__desencriptador__contenido__salida" name="consolaOut" id="consolaOut"
+                    readonly></textarea>
                 <div class="app__desencriptador__contenido__acciones">
-                    <button class="app__boton app__boton--secundario app__marginb">Copiar</button>
+                    <button class="app__boton app__boton--secundario app__marginb" onclick="copiar();">Copiar</button>
                 </div>
             </div>
         </section>
@@ -41,4 +49,5 @@
     </footer>
     <script src="js/app.js"></script>
 </body>
+
 </html>

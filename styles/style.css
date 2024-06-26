@@ -24,6 +24,7 @@ body {
 }
 
 .app__boton {
+    flex-basis: 0;
     flex-grow: 1;
     border: 2px solid darkblue;
     border-radius: 1.5rem;
@@ -107,6 +108,7 @@ body {
 
 .app__desencriptador__vacio__img {
     display: block;
+    width: 100%;
 }
 
 .app__desencriptador__vacio__smsprincipal {
