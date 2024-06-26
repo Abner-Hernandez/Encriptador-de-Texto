@@ -2,6 +2,7 @@
 
 :root {
     --color-primario: #E5E5E5;
+    --color-secundario: darkblue;
 
     --fuente-inter: 'inter', sans-serif;
 }
@@ -9,6 +10,10 @@
 * {
     padding: 0;
     margin: 0;
+}
+
+.header{
+    padding: 2% 0% 0% 15%;
 }
 
 body {
@@ -26,7 +31,7 @@ body {
 .app__boton {
     flex-basis: 0;
     flex-grow: 1;
-    border: 2px solid darkblue;
+    border: 2px solid var(--color-secundario);
     border-radius: 1.5rem;
     font-family: var(--fuente-inter);
     font-weight: 400;
@@ -35,13 +40,13 @@ body {
 }
 
 .app__boton--primario {
-    background-color: darkblue;
+    background-color: var(--color-secundario);
     color: white;
 }
 
 .app__boton--secundario {
     background-color: transparent;
-    color: darkblue;
+    color: var(--color-secundario);
 }
 
 .app__marginb {
@@ -60,7 +65,7 @@ body {
 .app__encriptador__entrada {
     background-color: transparent;
     border: none;
-    color: darkblue;
+    color: var(--color-secundario);
     font-family: var(--fuente-inter);
     font-size: 2rem;
     margin: 32px 0px 0px 0px;
@@ -148,6 +153,16 @@ body {
 .app__desencriptador__contenido__acciones {
     display: flex;
     width: auto;
+}
+
+.footer{
+    color:var(--color-primario);
+    background-color: var(--color-secundario);
+    padding: 24px;
+    text-align: center;
+    font-family: var(--fuente-inter);
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 @media (max-width: 1024px) {
