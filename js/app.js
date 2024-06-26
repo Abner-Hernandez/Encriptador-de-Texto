@@ -75,10 +75,10 @@ function procesarTexto(funcionProcesamiento) {
 
 function cambiarVisibilidad(isContenido) {
   if (isContenido) {
-    document.getElementById(idContenedorContenido).style.display = 'block';
+    document.getElementById(idContenedorContenido).style.display = 'flex';
     document.getElementById(idContenedorVacio).style.display = 'none';
   } else {
-    document.getElementById(idContenedorVacio).style.display = 'block';
+    document.getElementById(idContenedorVacio).style.display = 'flex';
     document.getElementById(idContenedorContenido).style.display = 'none';
   }
 
@@ -86,7 +86,7 @@ function cambiarVisibilidad(isContenido) {
 
 function validarTexto(event) {
   const input = document.getElementById('consolaIn');
-  const pattern = /^[a-z\s]+$/; // Expresión regular para letras minúsculas
+  const pattern = /[^A-ZÁÉÍÓÚÜ]/i; // Expresión regular para letras minúsculas
   if (!pattern.test(input.value)) {
     alert('Ingresa solo letras minúsculas y sin acentos.');
   } else {

@@ -141,7 +141,8 @@ body {
     color: gray;
     margin: 32px;
     resize: none;
-    min-height: 415px;
+    min-height: 400px;
+    text-overflow: ellipsis;
 }
 
 .app__desencriptador__contenido__acciones {
