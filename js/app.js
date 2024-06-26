@@ -64,13 +64,9 @@ function desencriptar(texto) {
 
 function procesarTexto(funcionProcesamiento) {
   let texto = document.getElementById(idConsolaIn).value;
-  if (texto.length > 0) {
-    cambiarVisibilidad(true);
-    let consolaOut = document.getElementById(idConsolaOut);
-    consolaOut.value = (funcionProcesamiento === 'encriptar') ? encriptar(texto) : desencriptar(texto);
-  } else {
-    cambiarVisibilidad(false);
-  }
+  let consolaOut = document.getElementById(idConsolaOut);
+  consolaOut.value = (funcionProcesamiento === 'encriptar') ? encriptar(texto) : desencriptar(texto);
+  cambiarVisibilidad(document.getElementById(idConsolaOut).value.length > 0);
 }
 
 function cambiarVisibilidad(isContenido) {
@@ -78,16 +74,16 @@ function cambiarVisibilidad(isContenido) {
     document.getElementById(idContenedorContenido).style.display = 'flex';
     document.getElementById(idContenedorVacio).style.display = 'none';
   } else {
-    document.getElementById(idContenedorVacio).style.display = 'flex';
+    document.getElementById(idContenedorVacio).style.display = 'inline';
     document.getElementById(idContenedorContenido).style.display = 'none';
   }
 
 }
 
 function validarTexto(event) {
-  const input = document.getElementById('consolaIn');
-  const pattern = /[^A-ZÁÉÍÓÚÜ]/i; // Expresión regular para letras minúsculas
-  if (!pattern.test(input.value)) {
+  const texto = document.getElementById(idConsolaIn).value;
+  const patron = /^[a-z0-9\s!@#$%^&*()_+\=[\]{}|;':".,\/<>?`~¡¿\n-]*$/;
+  if (!patron.test(texto)) {
     alert('Ingresa solo letras minúsculas y sin acentos.');
   } else {
     event.preventDefault();
