@@ -45,7 +45,6 @@ textareas.forEach(textarea => {
     //ajustar el alto de los paneles
     const contenedor = document.querySelector(".app__desencriptador");
     const altura = document.querySelector(".app__encriptador").scrollHeight;
-    const altura2 = document.querySelector(".app__desencriptador").scrollHeight;
     contenedor.style.height = `${altura}px`;;
   });
 });
