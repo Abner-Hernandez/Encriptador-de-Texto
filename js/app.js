@@ -21,20 +21,34 @@ const desconversiones = {
   'ufat': 'u',
 };
 
-function ajustarAlturaTextArea(textarea, maxHeight) {
-  textarea.addEventListener('input', function () {
-    this.style.height = 'auto';
-    this.style.height = (this.scrollHeight + 2) + 'px';
+const textareas = document.querySelectorAll('.auto-grow');
 
-    if (parseInt(this.style.height) > maxHeight) {
-      this.style.height = maxHeight + 'px';
-      this.scrollTop = this.scrollHeight;
-    }
-  });
+function ajustarAltura(textarea) {
+  textarea.style.height = 'auto';
+  textarea.style.height = (textarea.scrollHeight + 2) + 'px';
+
+  if (parseInt(textarea.style.height) > maxHeight) {
+    textarea.style.height = maxHeight + 'px';
+    textarea.scrollTop = textarea.scrollHeight;
+  }
 }
 
-ajustarAlturaTextArea(consolaIn, maxHeight);
-ajustarAlturaTextArea(consolaOut, maxHeight);
+textareas.forEach(textarea => {
+  textarea.addEventListener('input', () => {
+    ajustarAltura(textarea);
+    // Ajusta la altura de todos los textareas
+    textareas.forEach(otherTextarea => {
+      if (otherTextarea !== textarea) {
+        otherTextarea.style.height = textarea.style.height;
+      }
+    });
+    //ajustar el alto de los paneles
+    const contenedor = document.querySelector(".app__desencriptador");
+    const altura = document.querySelector(".app__encriptador").scrollHeight;
+    const altura2 = document.querySelector(".app__desencriptador").scrollHeight;
+    contenedor.style.height = `${altura}px`;;
+  });
+});
 
 function encriptarTexto(texto) {
   for (const letra in conversiones) {
@@ -70,12 +84,14 @@ function procesarTexto(funcionProcesamiento) {
 }
 
 function cambiarVisibilidad(isContenido) {
+  let contenido = document.getElementById(idContenedorContenido);
   if (isContenido) {
-    document.getElementById(idContenedorContenido).style.display = 'flex';
+    contenido.style.display = 'flex';
+    contenido.style.flexDirection = 'column';
     document.getElementById(idContenedorVacio).style.display = 'none';
   } else {
     document.getElementById(idContenedorVacio).style.display = 'inline';
-    document.getElementById(idContenedorContenido).style.display = 'none';
+    contenido.style.display = 'none';
   }
 
 }

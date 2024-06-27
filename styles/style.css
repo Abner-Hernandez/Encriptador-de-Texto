@@ -5,6 +5,8 @@
     --color-secundario: darkblue;
 
     --fuente-inter: 'inter', sans-serif;
+
+    --tamanio-minimo-textarea: 300px;
 }
 
 * {
@@ -13,19 +15,23 @@
 }
 
 .header{
-    padding: 2% 0% 0% 15%;
+    padding: 2% 0% 0% 10%;
 }
 
 body {
     box-sizing: border-box;
     background-color: var(--color-primario);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .app {
+    flex-grow: 1;
     display: flex;
+    align-items: flex-start;
     gap: 80px;
     padding: 40px;
-    height: 100%;
 }
 
 .app__boton {
@@ -53,13 +59,20 @@ body {
     margin: 0px 32px 32px 32px;
 }
 
+.app__contenedor {
+    flex-grow: 1;
+    min-height: 500px;
+    max-height: 700px;
+}
+
 .app__encriptador {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    justify-content: space-between;
-    padding-left: 200px;
-    width: 70%;
+    justify-content: flex-end;
+    padding: 32px 0px 32px 15%;
+    min-width: 50%;
 }
 
 .app__encriptador__entrada {
@@ -68,11 +81,8 @@ body {
     color: var(--color-secundario);
     font-family: var(--fuente-inter);
     font-size: 2rem;
-    margin: 32px 0px 0px 0px;
     resize: none;
-    width: 100%;
-    height: auto;
-    min-height: 400px;
+    min-height: var(--tamanio-minimo-textarea);
 }
 
 .app__encriptador__informacion {
@@ -89,53 +99,50 @@ body {
 .app__encriptador__acciones {
     display: flex;
     gap: 24px;
-    margin-bottom: 32px;
-    width: auto;
 }
 
 .app__desencriptador {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 30%;
+    justify-content: center;
     background-color: white;
     border-radius: 32px;
+    padding: 32px;
+    resize: vertical;
+    max-width: 30%;
 }
 
 .app__desencriptador__vacio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-    margin-left: 32px;
-    margin-right: 32px;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    margin-top: auto;
-    margin-bottom: auto;
+    align-items: center;
 }
 
 .app__desencriptador__vacio__img {
-    display: block;
-    width: 100%;
+    display: inline;
 }
 
 .app__desencriptador__vacio__smsprincipal {
     font-family: var(--fuente-inter);
     font-weight: 700;
     font-size: 1.5rem;
-    padding-top: 32px;
+    padding-top: 2rem;
 }
 
 .app__desencriptador__vacio__smssecundario {
     font-family: var(--fuente-inter);
     font-weight: 400;
     font-size: 1rem;
-    padding-top: 16px;
+    padding-top: 1rem;
 }
 
 .app__desencriptador__contenido {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
+    gap: 32px;
 }
 
 .app__desencriptador__contenido__salida {
@@ -144,22 +151,22 @@ body {
     font-family: var(--fuente-inter);
     font-size: 1.5rem;
     color: gray;
-    margin: 32px;
     resize: none;
-    min-height: 400px;
+    min-height: var(--tamanio-minimo-textarea);
+    max-height: 500px;
     text-overflow: ellipsis;
 }
 
 .app__desencriptador__contenido__acciones {
     display: flex;
-    width: auto;
+    margin-top: 24px;
 }
 
 .footer{
     color:var(--color-primario);
     background-color: var(--color-secundario);
     padding: 24px;
-    text-align: center;
+    text-align: right;
     font-family: var(--fuente-inter);
     font-size: 1rem;
     font-weight: 400;
@@ -167,6 +174,10 @@ body {
 
 @media (max-width: 1024px) {
 
+    .header{
+        padding: 2% 0% 0% 40px;
+    }
+    
     .app {
         display: flex;
         flex-direction: column;
@@ -179,6 +190,7 @@ body {
     }
 
     .app__desencriptador {
+        max-width: 100%;
         width: 100%;
     }
 
@@ -200,8 +212,12 @@ body {
 
 @media (max-width: 500px) {
 
+    .header{
+        padding: 2% 0% 0% 1rem;
+    }
+
     .app {
-        padding: 16px;
+        padding: 1rem;
     }
 
 }

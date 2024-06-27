@@ -2,7 +2,8 @@
 <html lang="es-gt">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de texto</title>
     <link rel="stylesheet" href="styles/style.css">
@@ -13,8 +14,8 @@
         <img src="assets/aluraLogo.png" alt="Alura Logo">
     </header>
     <main class="app">
-        <form class="app__encriptador" onsubmit="validarTexto(event);">
-            <textarea class="app__encriptador__entrada" placeholder="Ingrese el texto aqui" name="consolaIn"
+        <form class="app__contenedor app__encriptador" onsubmit="validarTexto(event);">
+            <textarea class="auto-grow app__encriptador__entrada" placeholder="Ingrese el texto aqui" name="consolaIn"
                 id="consolaIn" title="Ingresa solo letras minúsculas" required></textarea>
             <div class="app__encriptador__informacion">
                 <span class="material-symbols-outlined">info</span>
@@ -27,7 +28,7 @@
                     onclick="procesarTexto('desencriptar');">Desencriptar</button>
             </div>
         </form>
-        <section class="app__desencriptador">
+        <section class="app__contenedor app__desencriptador">
             <div class="app__desencriptador__vacio" id="contenedorVacio">
                 <img class="app__desencriptador__vacio__img" src="assets/notFound.png"
                     alt="Ningún mensaje fue encontrado">
@@ -36,10 +37,10 @@
                     desencriptar.</p>
             </div>
             <div class="app__desencriptador__contenido" id="contenedorContenido" style="display: none;">
-                <textarea class="app__desencriptador__contenido__salida" name="consolaOut" id="consolaOut"
+                <textarea class="auto-grow app__desencriptador__contenido__salida" name="consolaOut" id="consolaOut"
                     readonly></textarea>
                 <div class="app__desencriptador__contenido__acciones">
-                    <button class="app__boton app__boton--secundario app__marginb" onclick="copiar();">Copiar</button>
+                    <button class="app__boton app__boton--secundario" onclick="copiar();">Copiar</button>
                 </div>
             </div>
         </section>
